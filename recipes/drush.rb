@@ -42,6 +42,17 @@ deploy node[:drupal][:drush][:dir] do
   symlinks.clear
 end
 
+bash 'Install Drush using composer' do
+  user 'root'
+  cwd "#{node[:drupal][:drush][:dir]}/current"
+  cmd = "composer install"
+  code <<-EOH
+    set -x
+    set -e
+    #{cmd}
+  EOH
+end
+
 link node[:drupal][:drush][:executable] do
   to "#{node[:drupal][:drush][:dir]}/current/drush"
   link_type :symbolic

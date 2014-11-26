@@ -25,9 +25,9 @@ default[:drupal][:server][:web_group] = 'www-data'
 default[:drupal][:server][:base] = '/srv/www'
 default[:drupal][:server][:assets] = '/assets'
 
-default[:drupal][:drush][:revision] = '6.2.0'
+default[:drupal][:drush][:revision] = 'master'
 default[:drupal][:drush][:repository] = 'https://github.com/drush-ops/drush.git'
-default[:drupal][:drush][:dir] = '/opt/drush'
+default[:drupal][:drush][:dir] = '/usr/local/src/drush'
 default[:drupal][:drush][:executable] = '/usr/bin/drush'
 
 # set default web and files users
@@ -43,10 +43,10 @@ node[:drupal][:sites].each do |site_name, site|
   # default to bringing in latest drupal
   default[:drupal][:sites][site_name][:repository][:host] = 'github.com'
   default[:drupal][:sites][site_name][:repository][:uri] = 'https://github.com/drupal/drupal.git'
-  default[:drupal][:sites][site_name][:repository][:revision] = '7.26'
+  default[:drupal][:sites][site_name][:repository][:revision] = '8.0.0-beta2'
   default[:drupal][:sites][site_name][:repository][:shallow_clone] = false
 
-  default[:drupal][:sites][site_name][:drupal][:version] = '7.26'
+  default[:drupal][:sites][site_name][:drupal][:version] = '8.x'
   default[:drupal][:sites][site_name][:drupal][:registry_rebuild] = false
   default[:drupal][:sites][site_name][:drupal][:install]['install_configure_form.update_status_module'] = "'array(FALSE,FALSE)'"
   default[:drupal][:sites][site_name][:drupal][:install]['--clean-url'] = 1

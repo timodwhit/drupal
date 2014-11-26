@@ -8,6 +8,7 @@ version          '4.0.4'
 
 depends 'apt', '~> 2.3.0'
 depends 'apache2', '~> 1.8.14'
+depends 'composer', '~> 1.0.6'
 depends 'php', '~> 1.2.6'
 depends 'mysql', '~> 4.0.10'
 depends 'database', '~> 1.5.2'

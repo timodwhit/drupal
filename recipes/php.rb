@@ -17,6 +17,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+include_recipe 'composer'
 include_recipe 'php'
 
 ['php5-mysql', 'php5-gd', 'php5-curl'].each do |pkg|
