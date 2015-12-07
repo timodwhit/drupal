@@ -65,6 +65,7 @@ node[:drupal][:sites].each do |site_name, site|
   end
 
   default[:drupal][:sites][site_name][:drupal][:registry_rebuild] = false
+  default[:drupal][:sites][site_name][:drupal][:registry_rebuild_version] = ''
   default[:drupal][:sites][site_name][:drupal][:install]['install_configure_form.update_status_module'] = "'array(FALSE,FALSE)'"
 
   # Install setting only appropriate for drupal 7.

@@ -436,9 +436,13 @@ node[:drupal][:sites].each do |site_name, site|
     end
 
     if site[:drupal][:registry_rebuild]
+      rr_v = ''
+      if !site[:drupal][:registry_rebuild_version].nil?
+        rr_v = "-#{site[:drupal][:registry_rebuild_version]}"
+      end
       bash "drush-download-registry-rebuild-#{site_name}" do
         cwd "#{base}"
-        cmd = 'drush dl registry_rebuild; '
+        cmd = "drush dl registry_rebuild#{rr_v};"
         code <<-EOH
           set -x
           #{cmd}
